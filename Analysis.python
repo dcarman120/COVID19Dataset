@@ -1,7 +1,6 @@
-# %% [code]
 # Covid19 Data Analysis Notebook
 
-### Import the modules 
+# Import the modules 
 import pandas as pd 
 import numpy as np 
 import seaborn as sns
@@ -10,8 +9,8 @@ print('Modules are imported.')
 
 ## Task 2 
 
-### Task 2.1: importing "Covid19_Confirmed_dataset.csv" from "./kaggle" folder. 
-corona_dataset_csv = pd.read_csv("/kaggle/input/covid19dataset/covid19_Confirmed_dataset_dcarman.csv")
+### Task 2.1: importing "Covid19_Confirmed_dataset.csv" from './Dataset' folder 
+corona_dataset_csv = pd.read_csv('Dataset/covid19_Confirmed_dataset.csv')
 corona_dataset_csv.head(10)
 
 #### Check the shape of the dataframe
@@ -73,7 +72,6 @@ happiness_report_csv.head()
 
 ### Task4.4: join two Datasets
 corona_data.head()
-corona_data.shape
 
 #### world happiness report Dataset
 happiness_report_csv.shape
@@ -90,3 +88,20 @@ data.head()
 data_to_plot = pd.DataFrame({'GDP per capita': x, 'max_infection_rate': y})
 sns.scatterplot(data=data_to_plot, x='GDP per capita', y='max_infection_rate')
 sns.regplot(data=data_to_plot, x='GDP per capita', y='max_infection_rate')
+
+### Task 5.2: Plotting Social support vs maximum Infection rate
+x = data['Social support']
+y = data['max infection rate']
+sns.scatterplot(x,np.log(y))
+sns.regplot(x,np.log(y))
+
+### Task 5.3: Plotting Healthy life expectancy vs maximum Infection rate
+x = data['Healthy life expectancy']
+y = data['max infection rate']
+sns.scatterplot(x,np.log(y))
+
+### Task 5.4: Plotting Freedom to make life choices vs maximum Infection rate
+x = data['Freedom to make life choices']
+y = data['max infection rate']
+sns.scatterplot(x,np.log(y))
+sns.regplot(x,np.log(y))
